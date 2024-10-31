@@ -17,7 +17,7 @@ GITHUB_SRC=$2
 
 # get ovs source always from master as its needed as dependency
 mkdir /build; cd /build
-git clone --depth 1 -b master https://github.com/openvswitch/ovs.git
+git clone --depth 1 -b v3.2.2 https://github.com/openvswitch/ovs.git
 cd ovs;
 mkdir _gcc;
 
