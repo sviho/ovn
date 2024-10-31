@@ -3467,6 +3467,7 @@ pinctrl_run(struct ovsdb_idl_txn *ovnsb_idl_txn,
             const struct ovsrec_open_vswitch_table *ovs_table)
 {
     ovs_mutex_lock(&pinctrl_mutex);
+    VLOG_INFO("sleeping on pinctrl mutex");
     sleep(30);
     run_put_mac_bindings(ovnsb_idl_txn, sbrec_datapath_binding_by_key,
                          sbrec_port_binding_by_key,
