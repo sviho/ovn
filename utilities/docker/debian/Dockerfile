@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:24.04
 MAINTAINER "Aliasgar Ginwala" <aginwala@ebay.com>
 
 ARG OVN_BRANCH
