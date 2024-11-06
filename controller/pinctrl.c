@@ -3554,7 +3554,7 @@ pinctrl_run(struct ovsdb_idl_txn *ovnsb_idl_txn,
 {
     ovs_mutex_lock(&pinctrl_mutex);
     VLOG_INFO("sleeping after getting pinctrl mutex");
-    sleep(30);
+    sleep(5);
     run_put_mac_bindings(ovnsb_idl_txn, sbrec_datapath_binding_by_key,
                          sbrec_port_binding_by_key,
                          sbrec_mac_binding_by_lport_ip);
