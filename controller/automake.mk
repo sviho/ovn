@@ -48,8 +48,6 @@ controller_ovn_controller_SOURCES = \
 	controller/mac_cache.c \
 	controller/statctrl.h \
 	controller/statctrl.c \
-	controller/ct-zone.h \
-	controller/ct-zone.c \
 	controller/ovn-dns.c \
 	controller/ovn-dns.h
 

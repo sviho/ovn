@@ -86,7 +86,6 @@
 #include "mac_cache.h"
 #include "statctrl.h"
 #include "lib/dns-resolve.h"
-#include "ct-zone.h"
 #include "ovn-dns.h"
 
 VLOG_DEFINE_THIS_MODULE(main);
