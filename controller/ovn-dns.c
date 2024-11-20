@@ -103,11 +103,6 @@ ovn_dns_sync_cache(const struct sbrec_dns_table *dns_table)
             smap_clone(&dns_data->records, &sbrec_dns->records);
         }
 
-        if (!smap_equal(&dns_data->options, &sbrec_dns->options)) {
-            smap_destroy(&dns_data->options);
-            smap_clone(&dns_data->options, &sbrec_dns->options);
-        }
-
         dns_data->n_dps = sbrec_dns->n_datapaths;
         dns_data->dps = xcalloc(dns_data->n_dps, sizeof(uint64_t));
         for (size_t i = 0; i < sbrec_dns->n_datapaths; i++) {
@@ -218,11 +213,6 @@ update_cache_with_dns_rec(const struct sbrec_dns *sbrec_dns,
     if (!smap_equal(&dns_data->records, &sbrec_dns->records)) {
         smap_destroy(&dns_data->records);
         smap_clone(&dns_data->records, &sbrec_dns->records);
-    }
-
-    if (!smap_equal(&dns_data->options, &sbrec_dns->options)) {
-        smap_destroy(&dns_data->options);
-        smap_clone(&dns_data->options, &sbrec_dns->options);
     }
 
     dns_data->n_dps = sbrec_dns->n_datapaths;
