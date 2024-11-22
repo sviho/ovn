@@ -408,6 +408,8 @@ engine_recompute(struct engine_node *node, bool allowed,
 
     /* Run the node handler which might change state. */
     long long int now = time_msec();
+    sleep(0.25);
+    VLOG_INFO("sleeping on the recompute for 0.25 sec");
     node->run(node, node->data);
     node->stats.recompute++;
     long long int delta_time = time_msec() - now;
