@@ -3791,7 +3791,7 @@ process_packet_in(struct rconn *swconn, const struct ofp_header *msg)
     }
 
 
-    if (VLOG_IS_DBG_ENABLED()) {
+    if (true) {
         struct ds pin_str = DS_EMPTY_INITIALIZER;
         char * opc_str = ovnact_op_to_string(ntohl(ah->opcode));
 
@@ -3818,7 +3818,7 @@ process_packet_in(struct rconn *swconn, const struct ofp_header *msg)
                           IP_ARGS(headers.nw_dst));
         }
 
-        VLOG_DBG("%s \n", ds_cstr(&pin_str));
+        VLOG_INFO("%s \n", ds_cstr(&pin_str));
         ds_destroy(&pin_str);
         free(opc_str);
     }
