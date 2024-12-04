@@ -3631,6 +3631,8 @@ process_packet_in(struct rconn *swconn, const struct ofp_header *msg)
     struct flow headers;
     flow_extract(&packet, &headers);
 
+    VLOG_WARN_INFO("packet-in opcode %"PRIu32, ntohl(ah->opcode));
+
     switch (ntohl(ah->opcode)) {
     case ACTION_OPCODE_ARP:
         pinctrl_handle_arp(swconn, &headers, &pin, &userdata, &continuation);
