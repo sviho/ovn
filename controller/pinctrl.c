@@ -4038,9 +4038,14 @@ pinctrl_run(struct ovsdb_idl_txn *ovnsb_idl_txn,
 {
     ovs_mutex_lock(&pinctrl_mutex);
     if (VLOG_IS_DBG_ENABLED()) {
-        VLOG_INFO("start sleep for 10s on pinctrl mutex");
-        sleep(10);
-        VLOG_INFO("end sleep for 10s on pinctrl mutex");
+        for (int i = 0; i < 7; i++) {
+            VLOG_INFO("start sleep for 1s on pinctrl mutex");
+            sleep(1);
+            VLOG_INFO("end sleep for 1s on pinctrl mutex");
+            ovs_mutex_unlock(&pinctrl_mutex);
+            sleep(0.5);
+            ovs_mutex_lock(&pinctrl_mutex);
+        }
     }
     run_put_mac_bindings(ovnsb_idl_txn, sbrec_datapath_binding_by_key,
                          sbrec_port_binding_by_key,
